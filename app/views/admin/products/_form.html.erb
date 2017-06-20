@@ -1,0 +1,14 @@
+<%= simple_form_for  @product,url:new_admin_product_path  do |f| %>
+<div class="form-group">
+  <%= f.input :name, input_html: { class: "form-control"} %>
+</div>
+<div class="form-group">
+  <%= f.label "請選擇Size" %> <br>  
+  <%= f.select :size,[["大杯", "1"], ["小杯", "2"]]
+   %>
+</div>
+<div class="form-group">
+  <%= f.input :price, input_html:{ class: "form-contorl"} %>
+</div>
+<%= f.button :submit, class: "btn btn-primary" %>
+<% end %>

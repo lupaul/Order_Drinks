@@ -1,0 +1,11 @@
+<div id="drinks" class="transitions-enabled">
+  <% @prodcuts.each do |product| %>
+    <div class="box drink drink-default">
+
+      <div class="drink-body">
+        <h2><%= link_to product.name, product %></h2>
+
+      </div>
+    </div>
+  <% end %>
+</div>
