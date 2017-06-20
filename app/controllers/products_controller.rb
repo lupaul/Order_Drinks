@@ -1,8 +1,10 @@
 class ProductsController < ApplicationController
 
   def index
-    flash[:notice] = "success!"
-    flash[:warning] = "waning!"
-    flash[:alert] = "alert!!"
+    @products = Product.all
+  end
+
+  def show
+    @product = Product.find(params[:id])
   end
 end
