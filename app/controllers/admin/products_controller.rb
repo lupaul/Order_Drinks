@@ -1,5 +1,6 @@
 class Admin::ProductsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_product, only: [ :edit, :update, :destroy]
 
   def index
     @products = Product.all
@@ -20,15 +21,23 @@ class Admin::ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+
   end
 
   def update
-    @product = Product.find(params[:id])
+
     if @product.update(product_params)
       redirect_to admin_products_path
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @product.destroy
+      redirect_to :back
+    else
+      redirect_to :back
     end
   end
 
@@ -39,6 +48,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   def find_product
-
+    @product = Product.find(params[:id])
   end
 end

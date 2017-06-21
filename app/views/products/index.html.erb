@@ -1,11 +1,24 @@
-<div id="drinks" class="transitions-enabled">
-  <% @products.each do |product| %>
-    <div class="box drink drink-default">
-
-      <div class="drink-body">
-        <h2><%= link_to product.name, product %></h2>
-
-      </div>
-    </div>
-  <% end %>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>飲料名稱</th>
+          <th>價格(中)</th>
+          <th>價格(大)</th>
+          <th>選購</th>
+        </tr>
+      </thead>
+      <% @products.each do |product| %>
+      <tbody>
+        <tr>
+          <th><%= product.name %></th>
+          <th><%= product.price_grande %></th>
+          <th><%= product.price_venti %></th>
+          <th><%= link_to("buy", "#", class: "btn btn-info") %></th>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
 </div>
