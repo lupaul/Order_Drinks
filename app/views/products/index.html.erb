@@ -15,10 +15,11 @@
           <th><%= product.name %></th>
           <th><%= product.price_grande %></th>
           <th><%= product.price_venti %></th>
-          <th><%= link_to("buy", "#", class: "btn btn-info") %></th>
+          <th><%= link_to("buy", checkout_products_path(proid: product.id),method: :post, remote: true,  class: "btn btn-info") %></th>
         </tr>
       </tbody>
       <% end %>
     </table>
   </div>
 </div>
+<div id="product-modal" class="modal fade"></div>

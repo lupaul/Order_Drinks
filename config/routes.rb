@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   end
 
   resources :products do
-    member do
+    collection do
+      post :checkout
       post :add_to_cart
     end
   end
