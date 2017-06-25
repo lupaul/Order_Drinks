@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2> 飲料訂單明細
+      <% if Date.today.wday == 3 %>
+        (星期三買一送一)
+      <% end %>
+    </h2>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>飲料名稱</th>
+          <th>大杯數量</th>
+          <th>中杯數量</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order_items.each do |items| %>
+          <tr>
+            <td>
+              <%= items.product.name%>
+            </td>
+            <td>
+              <%= items.venti_quantity + items.bonus_venti %>
+            </td>
+            <td>
+              <%= items.grande_quantity + items.bonus_grande %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+    <div class="total clearfix">
+      <span class="pull-right">
+         <span> 總計 <%= @order.total_price %> NTD  </span>
+      </span>
+    </div>
+  </div>
+</div>
