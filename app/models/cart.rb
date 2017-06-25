@@ -11,4 +11,15 @@ class Cart < ApplicationRecord
       return true
     end
   end
+
+  def total_price
+    sum = 0
+    cart_items.each do |item|
+      venti_totalprice = item.venti_quantity * item.product.price_venti
+      grande_totalprice = item.grande_quantity * item.product.price_grande
+      sum = sum + venti_totalprice + grande_totalprice
+    end
+
+    sum
+  end
 end
