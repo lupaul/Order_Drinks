@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
+    flash[:notice] = "每週三 飲料(同品項同價位)買一送一！！！ 買幾杯就送您幾杯！！！  將會在送出訂單後顯示贈送飲料品項、數量！！"
     @products = Product.all
   end
 
